@@ -80,8 +80,28 @@ public class TestRepresentant {
 		} catch (IllegalArgumentException e) {
 			// Si on arrive ici, c'est normal, c'est le comportement attendu
 		}
-
+        
 	}
-	
+        @Test
+        public void testMoisNegatif() {
+            try {
+                 //on met un mois négatif, ça ne doit pas fonctionner
+                 //on s'attend à recevoir une exception
+                 r.enregistrerCA(-1, 10000f);
+                 fail(" Un mois négatif doit générer une exception");
+            } catch (IllegalArgumentException e) {}    
+        }
+         @Test
+        public void testMoisSuperieure() {
+            try {
+                 //on met un mois supérieur à 11, ça ne doit pas fonctionner
+                 //on s'attend à recevoir une exception
+                 r.enregistrerCA(12, 10000f);
+                 fail(" Un mois supérieur à 11 doit générer une exception");
+            } catch (IllegalArgumentException e) {}    
+        }
+        
+        
+        
 	
 }
