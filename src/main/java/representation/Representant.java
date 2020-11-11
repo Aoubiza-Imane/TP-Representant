@@ -8,7 +8,7 @@ public class Representant {
 	private String adresse;
 	private float salaireFixe;
         private ZoneGeographique secteur;
-        private float camensuel;
+        private final float[] camensuel = new float[12];
         
 
 	public Representant(int numero, String nom, String prenom, ZoneGeographique secteur) {
@@ -69,7 +69,7 @@ public class Representant {
 		if (montant < 0) {
 			throw new IllegalArgumentException("Le montant doit être positif ou null");
 		}
-		camensuel = montant; 
+		camensuel[mois] = montant; 
 		// throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
@@ -80,7 +80,7 @@ public class Representant {
 	 * @return le salaire pour ce mois, tenant compte du salaire fixe, de l'indemnité repas, et du pourcentage sur CA
 	 */
 	public float salaireMensuel(int mois, float pourcentage) {
-		return salaireFixe + pourcentage*camensuel + secteur.getIndemniteRepas(); 
+		return salaireFixe + (pourcentage*camensuel[mois]) + secteur.getIndemniteRepas(); 
 		//throw new UnsupportedOperationException("Pas encore implémenté");
 	}
 
