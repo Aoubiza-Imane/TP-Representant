@@ -92,7 +92,7 @@ public class TestRepresentant {
             } catch (IllegalArgumentException e) {}    
         }
          @Test
-        public void testMoisSuperieure() {
+        public void testMoisSuperieur() {
             try {
                  //on met un mois supérieur à 11, ça ne doit pas fonctionner
                  //on s'attend à recevoir une exception
